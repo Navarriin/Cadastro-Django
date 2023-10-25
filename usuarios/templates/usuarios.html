@@ -22,18 +22,19 @@
             {% for variavel in variaveis %}
 
             <tr align="center">
-            <td scope="row">{{ variavel.cpf }}</td>
+            <td scope="row"><b>{{ variavel.cpf }}</b></td>
             <td>{{ variavel.nome }}</td>
             <td>{{ variavel.sexo }}</td>
             <td>{{ variavel.data }}</td>
             <td>
-                <a href="" class="btn btn-danger">Deletar</a>
+                <a href="{% url 'usuarios:deletar' variavel.id %}" class="btn btn-danger">Deletar</a>
                 <a href="" class="btn btn-secondary">Atualizar</a>
             </td>
           </tr>
             {% endfor %}
         </tbody>
       </table>
+      <a href="{% url 'usuarios:index' %}" class="btn btn-primary">Voltar</a>
     </div>
     {% endblock content %}
 </body>
