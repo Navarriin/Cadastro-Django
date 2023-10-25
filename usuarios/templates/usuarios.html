@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+</head>
+<body>
+    {% extends 'usuarios/base.html' %}
+    {% block content %}
+    <div class="container">
+    <table class="table">
+        <thead>
+          <tr align="center">
+            <th scope="col">CPF</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Data de Nascimento</th>
+            <th scope="col">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for variavel in variaveis %}
+
+            <tr align="center">
+            <td scope="row">{{ variavel.cpf }}</td>
+            <td>{{ variavel.nome }}</td>
+            <td>{{ variavel.sexo }}</td>
+            <td>{{ variavel.data }}</td>
+            <td>
+                <a href="" class="btn btn-danger">Deletar</a>
+                <a href="" class="btn btn-secondary">Atualizar</a>
+            </td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endblock content %}
+</body>
+</html>
