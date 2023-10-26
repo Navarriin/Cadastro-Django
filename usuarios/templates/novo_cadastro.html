@@ -19,7 +19,7 @@
         <div class="row">
             {% if form.is_valid == False %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>ERRO!!</strong> Você não pode entregar o formulario sem preencher tudo.
+                    <strong>ERRO!!</strong> Preencha todos os campos.
                     <a href="{% url 'usuarios:cadastros' %}"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></a>
                 </div>
             {% endif %}
@@ -36,6 +36,7 @@
                     <div class="mb-3">
                         <label for="sexo" class="form-label">Sexo</label>
                         <select name="sexo" id="sexo" class="form-control">
+                            <option value="">---Selecione---</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
                             <option value="Outro">Outro</option>

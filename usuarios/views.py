@@ -23,7 +23,6 @@ def cadastros(request): # CREATE/POST
             return usuarios(request)
         return render(request, 'novo_cadastro.html', context)
        
-
 def usuarios(request): # READ/GET
     """funçao que mostra todos os usuarios cadastrados"""
     variaveis = Pessoa.objects.all()
@@ -39,17 +38,17 @@ def deletar(request, usuarios_id): # DELETE
 def atualizar(request, usuario_id): # UPDATE/POP
     """funçao que deleta o usuario por id e cria um novo (atualiza)"""
     variavel = Pessoa.objects.get(id=usuario_id)
+    form = UserForm(request.POST)
     context = {'variavel': variavel}
     if request.method == 'GET':
         return render(request, 'atualizar.html', context)
     if request.method == 'POST':
-        form = UserForm(request.POST)
+        context = {'variavel': variavel, 'form': form}
         if form.is_valid():
             form.save()
             variavel.delete()
             return redirect('/usuarios/')
         else:
-            return error(request)
+            return render(request, 'atualizar.html', context)
     
-def error(request):
-    return render(request, 'error.html')
+
