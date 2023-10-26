@@ -28,7 +28,7 @@
             <td>{{ variavel.data }}</td>
             <td>
                 <a href="{% url 'usuarios:deletar' variavel.id %}" class="btn btn-danger">Deletar</a>
-                <a href="" class="btn btn-secondary">Atualizar</a>
+                <a href="{% url 'usuarios:atualizar' variavel.id %}" class="btn btn-secondary">Atualizar</a>
             </td>
           </tr>
             {% endfor %}
